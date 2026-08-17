@@ -20,6 +20,7 @@ import {
   steps,
   trustBadges,
 } from "./content";
+import { ConfidencePanel, QuickCareBar } from "./watermelon-enhancements";
 
 export const metadata: Metadata = {
   title: "Стоматология в Бишкеке | AlaMed Clinic",
@@ -59,12 +60,14 @@ export default function Home() {
               <a className="primary-button" href={clinic.whatsapp}>Записаться на прием</a>
               <a className="ghost-button" href="#services">Посмотреть услуги</a>
             </div>
+            <QuickCareBar />
             <div className="trust-badges">
               {trustBadges.map((badge) => <span key={badge}>{badge}</span>)}
             </div>
           </div>
           <div className="hero-media">
             <img src={photos.hero} alt="Современный стоматологический кабинет и врач" />
+            <ConfidencePanel />
             <div className="hero-note">
               <strong>Для частной клиники</strong>
               <span>Частная клиника для всей семьи: диагностика, лечение и забота в одном месте.</span>

@@ -1,4 +1,5 @@
 import { clinic, doctors, faqs, prices, services } from "./content";
+import { AppointmentStackForm } from "./watermelon-enhancements";
 
 export function Header() {
   return (
@@ -165,31 +166,5 @@ export function FAQList({ schema = false }: { schema?: boolean }) {
 }
 
 export function LeadForm() {
-  return (
-    <form className="lead-form" id="lead-form">
-      <label>
-        Имя
-        <input name="name" placeholder="Как к вам обращаться" />
-      </label>
-      <label>
-        Телефон
-        <input name="phone" placeholder="+996 ___ ___ ___" />
-      </label>
-      <label>
-        Услуга
-        <select name="service" defaultValue="">
-          <option value="" disabled>Выберите услугу</option>
-          {services.map((service) => (
-            <option key={service.slug}>{service.title}</option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Удобное время
-        <input name="time" placeholder="Сегодня после 16:00" />
-      </label>
-      <button className="primary-button" type="submit">Отправить заявку</button>
-      <p>Нажимая кнопку, вы соглашаетесь на связь администратора по указанному номеру.</p>
-    </form>
-  );
+  return <AppointmentStackForm />;
 }
