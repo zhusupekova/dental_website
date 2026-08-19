@@ -2,9 +2,11 @@
 
 import { useMemo, useState } from "react";
 import {
+  Activity,
   CalendarCheck,
   ChevronRight,
   Clock3,
+  FileCheck2,
   HeartPulse,
   MessageCircle,
   Phone,
@@ -103,6 +105,88 @@ export function ConfidencePanel() {
         <strong>Прием сегодня</strong>
         <span>если есть свободное окно</span>
       </div>
+    </div>
+  );
+}
+
+const commandCards = [
+  {
+    icon: MessageCircle,
+    title: "Пациент пишет в WhatsApp",
+    text: "Администратор быстро уточняет жалобу и предлагает удобное время.",
+  },
+  {
+    icon: Activity,
+    title: "Врач проводит диагностику",
+    text: "Осмотр, снимки по показаниям и спокойное объяснение ситуации.",
+  },
+  {
+    icon: FileCheck2,
+    title: "План лечения понятен",
+    text: "Стоимость, этапы и сроки согласованы до начала процедур.",
+  },
+];
+
+export function PatientJourneyConsole() {
+  const [active, setActive] = useState(commandCards[0].title);
+  const selected =
+    commandCards.find((card) => card.title === active) ?? commandCards[0];
+  const Icon = selected.icon;
+
+  return (
+    <div className="journey-console">
+      <div className="console-topline">
+        <span>Patient flow</span>
+        <strong>готовый путь к записи</strong>
+      </div>
+      <div className="console-shell">
+        <aside>
+          {commandCards.map((card) => {
+            const CardIcon = card.icon;
+            return (
+              <button
+                className={active === card.title ? "active" : ""}
+                key={card.title}
+                onClick={() => setActive(card.title)}
+                type="button"
+              >
+                <CardIcon size={17} />
+                <span>{card.title}</span>
+              </button>
+            );
+          })}
+        </aside>
+        <section>
+          <div className="console-icon">
+            <Icon size={24} />
+          </div>
+          <h3>{selected.title}</h3>
+          <p>{selected.text}</p>
+          <div className="console-progress">
+            <span />
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+export function MotionValueStrip() {
+  return (
+    <div className="motion-strip" aria-label="Преимущества сайта">
+      {[
+        ["01", "Mobile-first", "Запись видна сразу на телефоне"],
+        ["02", "Soft motion", "Деликатные состояния и hover-эффекты"],
+        ["03", "Ready to sell", "Структура под заявки и доверие"],
+      ].map(([number, title, text]) => (
+        <article key={title}>
+          <span>{number}</span>
+          <div>
+            <strong>{title}</strong>
+            <p>{text}</p>
+          </div>
+        </article>
+      ))}
     </div>
   );
 }

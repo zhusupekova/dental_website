@@ -20,7 +20,12 @@ import {
   steps,
   trustBadges,
 } from "./content";
-import { ConfidencePanel, QuickCareBar } from "./watermelon-enhancements";
+import {
+  ConfidencePanel,
+  MotionValueStrip,
+  PatientJourneyConsole,
+  QuickCareBar,
+} from "./watermelon-enhancements";
 
 export const metadata: Metadata = {
   title: "Стоматология в Бишкеке | AlaMed Clinic",
@@ -64,6 +69,7 @@ export default function Home() {
             <div className="trust-badges">
               {trustBadges.map((badge) => <span key={badge}>{badge}</span>)}
             </div>
+            <MotionValueStrip />
           </div>
           <div className="hero-media">
             <img src={photos.hero} alt="Современный стоматологический кабинет и врач" />
@@ -73,6 +79,17 @@ export default function Home() {
               <span>Частная клиника для всей семьи: диагностика, лечение и забота в одном месте.</span>
             </div>
           </div>
+        </section>
+
+        <section className="section console-section">
+          <div className="section-heading split">
+            <div>
+              <span className="eyebrow">Дизайн под заявки</span>
+              <h2>Пациент видит не просто красивый сайт, а понятный путь к записи</h2>
+            </div>
+            <p>Блок вдохновлен AI-product интерфейсами Manus и motion-паттернами: короткий сценарий, ясные действия, аккуратная интерактивность.</p>
+          </div>
+          <PatientJourneyConsole />
         </section>
 
         <section className="section" id="benefits">
