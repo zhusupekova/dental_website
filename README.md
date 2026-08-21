@@ -5,6 +5,9 @@ Modern responsive website template for a private dentistry clinic or a multi-spe
 Live demo:
 https://bishkek-dental-clinic-template.salamatovnasezim3.chatgpt.site
 
+GitHub Pages:
+https://zhusupekova.github.io/dental_website/
+
 ## What Is Included
 
 - Landing page with hero, services, doctors, first-visit flow, reviews, prices, FAQ, contacts, map, and appointment form.
@@ -78,6 +81,6 @@ app/prices/page.tsx
 app/contacts/page.tsx
 ```
 
-## Candidate Notes
+## Design Notes
 
-Please keep the template calm, medical, trustworthy, and mobile-first. Avoid aggressive sales banners, generic stock-smile hero images, excessive animations, and heavy medical jargon.
+The design is calm, medical, trustworthy, and mobile-first. It avoids aggressive sales banners, excessive animation, and heavy medical jargon.
