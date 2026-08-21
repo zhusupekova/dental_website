@@ -1,11 +1,26 @@
 import { clinic, doctors, faqs, prices, services } from "./content";
 import { AppointmentStackForm, MobileSiteMenu } from "./watermelon-enhancements";
 
+function DentalMarkIcon() {
+  return (
+    <svg aria-hidden="true" fill="none" height="23" viewBox="0 0 24 24" width="23">
+      <path
+        d="M12 3.5c1.2 0 2.05.5 2.78.93.62.37 1.16.69 1.88.69 1.98 0 3.34 1.75 3.34 4.03 0 1.6-.55 3.27-1.23 4.78-.72 1.58-1.24 3.18-1.55 4.82-.18.95-.98 1.75-1.96 1.75-1.2 0-1.63-1.05-1.98-2.2-.4-1.33-.64-2.32-1.28-2.32s-.88.99-1.28 2.32c-.35 1.15-.78 2.2-1.98 2.2-.98 0-1.78-.8-1.96-1.75-.31-1.64-.83-3.24-1.55-4.82C4.55 12.42 4 10.75 4 9.15c0-2.28 1.36-4.03 3.34-4.03.72 0 1.26-.32 1.88-.69.73-.43 1.58-.93 2.78-.93Z"
+        stroke="currentColor"
+        strokeLinejoin="round"
+        strokeWidth="1.9"
+      />
+    </svg>
+  );
+}
+
 export function Header() {
   return (
     <header className="site-header">
       <a className="brand" href="/">
-        <span className="brand-mark">A</span>
+        <span className="brand-mark" aria-hidden="true">
+          <DentalMarkIcon />
+        </span>
         <span>
           <strong>{clinic.logo}</strong>
           <small>стоматология в Бишкеке</small>
@@ -33,7 +48,9 @@ export function Footer() {
     <footer className="footer">
       <div>
         <a className="brand" href="/">
-          <span className="brand-mark">A</span>
+          <span className="brand-mark" aria-hidden="true">
+            <DentalMarkIcon />
+          </span>
           <span>
             <strong>{clinic.logo}</strong>
             <small>частная клиника</small>

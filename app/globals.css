@@ -89,14 +89,36 @@ summary:focus-visible {
 }
 
 .brand-mark {
+  position: relative;
   display: grid;
   place-items: center;
   width: 40px;
   height: 40px;
   border-radius: 8px;
-  background: var(--primary);
-  color: #fff;
+  background:
+    radial-gradient(circle at 72% 24%, rgba(159, 216, 205, 0.42), transparent 28%),
+    linear-gradient(135deg, var(--primary), var(--primary-2));
+  color: #f8fffd;
   font-weight: 800;
+  box-shadow: 0 12px 28px rgba(6, 63, 82, 0.2);
+  overflow: hidden;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 5px;
+  height: 5px;
+  border-radius: 999px;
+  background: #dbc8ad;
+  box-shadow: 0 0 18px rgba(219, 200, 173, 0.9);
+}
+
+.brand-mark svg {
+  position: relative;
+  z-index: 1;
 }
 
 .brand strong,
