@@ -1,5 +1,6 @@
 "use client";
 
+import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 import {
   Activity,
@@ -8,6 +9,8 @@ import {
   Clock3,
   FileCheck2,
   HeartPulse,
+  MapPin,
+  Menu,
   MessageCircle,
   Phone,
   Search,
@@ -25,6 +28,70 @@ const quickActions = [
   { id: "kids", label: "Ребенку", icon: Users, href: "/services/kids-dentistry" },
   { id: "checkup", label: "Осмотр", icon: Stethoscope, href: clinic.whatsapp },
 ];
+
+const mobileLinks = [
+  { href: "/#services", label: "Услуги" },
+  { href: "/#doctors", label: "Врачи" },
+  { href: "/about", label: "О клинике" },
+  { href: "/prices", label: "Цены" },
+  { href: "/#reviews", label: "Отзывы" },
+  { href: "/contacts", label: "Контакты" },
+];
+
+export function MobileSiteMenu() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="mobile-menu">
+      <button
+        aria-expanded={isOpen}
+        aria-label={isOpen ? "Закрыть меню" : "Открыть меню"}
+        className="mobile-menu-trigger"
+        onClick={() => setIsOpen((value) => !value)}
+        type="button"
+      >
+        {isOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}
+        <span>Меню</span>
+      </button>
+      {isOpen && (
+        <div className="mobile-menu-panel">
+          <div className="mobile-menu-head">
+            <strong>Быстрая навигация</strong>
+            <button aria-label="Закрыть меню" onClick={() => setIsOpen(false)} type="button">
+              <X size={18} aria-hidden="true" />
+            </button>
+          </div>
+          <div className="mobile-menu-links">
+            {mobileLinks.map((link) => (
+              <a href={link.href} key={link.href} onClick={() => setIsOpen(false)}>
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <div className="mobile-menu-card">
+            <MapPin size={18} aria-hidden="true" />
+            <div>
+              <strong>{clinic.address}</strong>
+              <span>{clinic.hours}</span>
+            </div>
+          </div>
+          <div className="mobile-menu-actions">
+            <a className="primary-button" href={clinic.whatsapp} onClick={() => setIsOpen(false)}>
+              WhatsApp
+            </a>
+            <a
+              className="ghost-button"
+              href={`tel:${clinic.phone.replaceAll(" ", "")}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Позвонить
+            </a>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function QuickCareBar() {
   const [isSearching, setIsSearching] = useState(false);
@@ -195,8 +262,27 @@ export function AppointmentStackForm() {
   const [selected, setSelected] = useState(services[0].title);
   const [contactMethod, setContactMethod] = useState("WhatsApp");
 
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+    const name = String(form.get("name") || "Не указано");
+    const phone = String(form.get("phone") || "Не указано");
+    const time = String(form.get("time") || "Не указано");
+    const message = [
+      "Здравствуйте! Хочу записаться на прием.",
+      `Имя: ${name}`,
+      `Телефон: ${phone}`,
+      `Услуга: ${selected}`,
+      `Удобное время: ${time}`,
+      `Способ связи: ${contactMethod}`,
+    ].join("\n");
+
+    window.location.href = `${clinic.whatsapp}?text=${encodeURIComponent(message)}`;
+  }
+
   return (
-    <form className="lead-form appointment-stack" id="lead-form">
+    <form className="lead-form appointment-stack" id="lead-form" onSubmit={handleSubmit}>
       <div className="stack-header">
         <span>Запись на прием</span>
         <strong>3 коротких шага</strong>
@@ -242,7 +328,7 @@ export function AppointmentStackForm() {
         <input name="time" placeholder="Сегодня после 16:00" />
       </label>
       <button className="primary-button" type="submit">
-        Отправить заявку
+        Отправить в WhatsApp
         <ChevronRight size={17} aria-hidden="true" />
       </button>
       <p>Администратор уточнит детали и подтвердит запись. Данные в шаблоне легко заменить под вашу клинику.</p>

@@ -1,5 +1,5 @@
 import { clinic, doctors, faqs, prices, services } from "./content";
-import { AppointmentStackForm } from "./watermelon-enhancements";
+import { AppointmentStackForm, MobileSiteMenu } from "./watermelon-enhancements";
 
 export function Header() {
   return (
@@ -23,6 +23,7 @@ export function Header() {
         <a className="ghost-button" href={`tel:${clinic.phone.replaceAll(" ", "")}`}>Позвонить</a>
         <a className="primary-button" href={clinic.whatsapp}>Записаться</a>
       </div>
+      <MobileSiteMenu />
     </header>
   );
 }
@@ -63,7 +64,7 @@ export function MobileBar() {
     <div className="mobile-bar" aria-label="Быстрая запись">
       <a href={clinic.whatsapp}>WhatsApp</a>
       <a href={`tel:${clinic.phone.replaceAll(" ", "")}`}>Позвонить</a>
-      <a href="#lead-form">Записаться</a>
+      <a href="/contacts#lead-form">Записаться</a>
     </div>
   );
 }
