@@ -21,6 +21,7 @@ import {
   trustBadges,
 } from "./content";
 import {
+  AnimationLayer,
   ConfidencePanel,
   MotionValueStrip,
   PatientJourneyConsole,
@@ -28,7 +29,7 @@ import {
 } from "./watermelon-enhancements";
 
 export const metadata: Metadata = {
-  title: "Стоматология в Бишкеке | AlaMed Clinic",
+  title: "Стоматология в Бишкеке | Aurum Dental",
   description:
     "Современный шаблон сайта для стоматологии или частной клиники в Бишкеке: услуги, врачи, цены, отзывы и запись через WhatsApp.",
 };
@@ -49,6 +50,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <AnimationLayer />
       <main>
         <script
           type="application/ld+json"

@@ -1,6 +1,6 @@
 export const clinic = {
-  name: "AlaMed Clinic",
-  logo: "AlaMed",
+  name: "Aurum Dental",
+  logo: "Aurum Dental",
   city: "Бишкек",
   district: "район Асанбай, рядом с Южной магистралью",
   address: "г. Бишкек, ул. Токтоналиева, 86",

@@ -9,11 +9,11 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://example.com"),
-  title: "Стоматология в Бишкеке | AlaMed Clinic",
+  title: "Стоматология в Бишкеке | Aurum Dental",
   description:
     "Премиальный адаптивный шаблон сайта для частной стоматологии или многопрофильной клиники в Бишкеке.",
   openGraph: {
-    title: "Стоматология в Бишкеке | AlaMed Clinic",
+    title: "Стоматология в Бишкеке | Aurum Dental",
     description:
       "Спокойное лечение, понятный план и запись через WhatsApp в современной частной клинике.",
     images: [{ url: "/og.png", width: 1200, height: 630 }],
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Стоматология в Бишкеке | AlaMed Clinic",
+    title: "Стоматология в Бишкеке | Aurum Dental",
     description:
       "Спокойное лечение, понятный план и запись через WhatsApp в современной частной клинике.",
     images: ["/og.png"],

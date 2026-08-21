@@ -1,7 +1,7 @@
 "use client";
 
 import type { FormEvent } from "react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Activity,
   CalendarCheck,
@@ -37,6 +37,60 @@ const mobileLinks = [
   { href: "/#reviews", label: "Отзывы" },
   { href: "/contacts", label: "Контакты" },
 ];
+
+export function AnimationLayer() {
+  useEffect(() => {
+    const targets = Array.from(
+      document.querySelectorAll<HTMLElement>(
+        [
+          ".section-heading",
+          ".benefit-card",
+          ".service-card",
+          ".doctor-card",
+          ".review-card",
+          ".steps article",
+          ".price-row",
+          ".faq-list details",
+          ".team-feature > *",
+          ".trust-layout > *",
+          ".contact-info",
+          ".lead-form",
+          ".cta-band",
+          ".journey-console",
+          ".clinic-gallery img",
+        ].join(","),
+      ),
+    );
+
+    targets.forEach((element, index) => {
+      element.classList.add("reveal-on-scroll");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 8, 6) * 58}ms`);
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      targets.forEach((element) => element.classList.add("is-visible"));
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.12 },
+    );
+
+    targets.forEach((element) => observer.observe(element));
+
+    return () => observer.disconnect();
+  }, []);
+
+  return null;
+}
 
 export function MobileSiteMenu() {
   const [isOpen, setIsOpen] = useState(false);
