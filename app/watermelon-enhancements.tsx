@@ -33,7 +33,7 @@ const mobileLinks = [
   { href: "/#services", label: "Услуги" },
   { href: "/#doctors", label: "Врачи" },
   { href: "/about", label: "О клинике" },
-  { href: "/prices", label: "Цены" },
+  { href: "/prices", label: "Условия" },
   { href: "/#reviews", label: "Отзывы" },
   { href: "/contacts", label: "Контакты" },
 ];
@@ -214,7 +214,7 @@ export function ConfidencePanel() {
       <div>
         <ShieldCheck size={20} aria-hidden="true" />
         <strong>Прозрачный план</strong>
-        <span>стоимость до начала</span>
+        <span>условия до начала</span>
       </div>
       <div>
         <Clock3 size={20} aria-hidden="true" />
@@ -244,7 +244,7 @@ const commandCards = [
   {
     icon: FileCheck2,
     title: "План лечения понятен",
-    text: "Стоимость, этапы и сроки согласованы до начала процедур.",
+    text: "Условия, этапы и сроки согласованы до начала процедур.",
   },
 ];
 

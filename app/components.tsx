@@ -30,7 +30,7 @@ export function Header() {
         <a href="/#services">Услуги</a>
         <a href="/#doctors">Врачи</a>
         <a href="/about">О клинике</a>
-        <a href="/prices">Цены</a>
+        <a href="/prices">Условия</a>
         <a href="/#reviews">Отзывы</a>
         <a href="/contacts">Контакты</a>
       </nav>
@@ -56,13 +56,13 @@ export function Footer() {
             <small>частная клиника</small>
           </span>
         </a>
-        <p>Шаблон сайта для стоматологии или многопрофильной клиники. Замените название, фото, адрес, врачей и цены под свою клинику.</p>
+        <p>Шаблон сайта для стоматологии или многопрофильной клиники. Замените название, фото, адрес, врачей и условия под свою клинику.</p>
       </div>
       <div>
         <h3>Навигация</h3>
         <a href="/#services">Услуги</a>
         <a href="/doctors/aida-sadykova">Врачи</a>
-        <a href="/prices">Цены</a>
+        <a href="/prices">Условия</a>
         <a href="/contacts">Контакты</a>
       </div>
       <div>

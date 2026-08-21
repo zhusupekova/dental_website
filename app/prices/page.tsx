@@ -3,8 +3,8 @@ import { CTA, Footer, Header, MobileBar, PriceTable, ServiceCards } from "../com
 import { clinic } from "../content";
 
 export const metadata: Metadata = {
-  title: `Цены | ${clinic.name}`,
-  description: "Цены на популярные услуги стоматологии в Бишкеке. Точная стоимость согласуется после диагностики.",
+  title: `Условия | ${clinic.name}`,
+  description: "Условия записи на популярные услуги стоматологии в Бишкеке согласуются после диагностики.",
 };
 
 export default function PricesPage() {
@@ -13,9 +13,9 @@ export default function PricesPage() {
       <Header />
       <main>
         <section className="subhero">
-          <span className="eyebrow">Цены</span>
-          <h1>Цены на стоматологические услуги в Бишкеке</h1>
-          <p>Мы показываем ориентиры заранее. Финальная стоимость зависит от диагностики, объема лечения и выбранного плана.</p>
+          <span className="eyebrow">Условия</span>
+          <h1>Условия записи на стоматологические услуги в Бишкеке</h1>
+          <p>Мы показываем ориентиры заранее. Финальный план зависит от диагностики, объема лечения и выбранного подхода.</p>
         </section>
         <section className="section">
           <PriceTable />
@@ -27,7 +27,7 @@ export default function PricesPage() {
           </div>
           <ServiceCards compact />
         </section>
-        <CTA title="Уточнить стоимость" text="Напишите в WhatsApp, администратор задаст несколько вопросов и подскажет, с какого приема начать." />
+        <CTA title="Уточнить условия" text="Напишите в WhatsApp, администратор задаст несколько вопросов и подскажет, с какого приема начать." />
       </main>
       <Footer />
       <MobileBar />

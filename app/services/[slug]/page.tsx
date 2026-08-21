@@ -15,16 +15,16 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
   return {
     title: `${service.title} в Бишкеке | ${clinic.name}`,
-    description: `${service.short} Цена ${service.price}. Запись через WhatsApp, понятный план лечения и спокойный прием.`,
+    description: `${service.short} Запись через WhatsApp, понятный план лечения и спокойный прием.`,
     openGraph: {
       title: `${service.title} в Бишкеке | ${clinic.name}`,
-      description: `${service.short} Цена ${service.price}. Запись через WhatsApp.`,
+      description: `${service.short} Запись через WhatsApp.`,
       images: [],
     },
     twitter: {
       card: "summary",
       title: `${service.title} в Бишкеке | ${clinic.name}`,
-      description: `${service.short} Цена ${service.price}. Запись через WhatsApp.`,
+      description: `${service.short} Запись через WhatsApp.`,
       images: [],
     },
   };
@@ -60,10 +60,10 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
         <section className="subhero">
           <span className="eyebrow">Услуга</span>
           <h1>{service.title} в Бишкеке</h1>
-          <p>{service.short} Врач объяснит диагностику, этапы, сроки и стоимость до начала лечения.</p>
+          <p>{service.short} Врач объяснит диагностику, этапы, сроки и условия до начала лечения.</p>
           <div className="hero-actions">
             <a className="primary-button" href={clinic.whatsapp}>Записаться</a>
-            <a className="ghost-button" href="/prices">Посмотреть цены</a>
+            <a className="ghost-button" href="/prices">Посмотреть условия</a>
           </div>
         </section>
 
@@ -80,9 +80,9 @@ export default function ServicePage({ params }: { params: { slug: string } }) {
             </ul>
           </div>
           <aside className="content-panel">
-            <h3>Стоимость</h3>
+            <h3>Условия</h3>
             <p>{service.price}</p>
-            <p>Точная цена зависит от диагностики. Мы заранее согласуем план лечения.</p>
+            <p>План лечения согласуем после диагностики.</p>
             <a className="primary-button" href={clinic.whatsapp}>Получить консультацию</a>
           </aside>
         </section>

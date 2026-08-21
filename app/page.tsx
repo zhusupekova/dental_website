@@ -31,7 +31,7 @@ import {
 export const metadata: Metadata = {
   title: "Стоматология в Бишкеке | Aurum Dental",
   description:
-    "Современный шаблон сайта для стоматологии или частной клиники в Бишкеке: услуги, врачи, цены, отзывы и запись через WhatsApp.",
+    "Современный шаблон сайта для стоматологии или частной клиники в Бишкеке: услуги, врачи, условия, отзывы и запись через WhatsApp.",
 };
 
 export default function Home() {
@@ -183,10 +183,10 @@ export default function Home() {
         <section className="section alt" id="prices">
           <div className="section-heading split">
             <div>
-              <span className="eyebrow">Цены</span>
+              <span className="eyebrow">Условия</span>
               <h2>Популярные услуги</h2>
             </div>
-            <p>Точная стоимость зависит от диагностики. Мы заранее согласуем план лечения.</p>
+            <p>План лечения согласуется после диагностики.</p>
           </div>
           <PriceTable />
           <div className="center-action">
